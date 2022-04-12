@@ -31,26 +31,72 @@ var getScriptPromisify = (src) => {
     }
 
 
-
-      ////////////////////////////////////////////////////////////
-     ////First comment: Place the first part of the script here//
-    ////////////////////////////////////////////////////////////
+set myDatasource (dataBinding) {
+                  this._myDatesource = dataBinding
+                  this.render()
+}
 
 
     async render () {
       await getScriptPromisify('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js')
 
 
-      /////////////////////////////////////////////////////////////
-     ///Second comment: Place the second part of the script here//
-    /////////////////////////////////////////////////////////////
-
+if (!this._myDataSource || this._myDataSource.state !== 'success') {
+      return
+    }
+    const dimension = 
+this._mydataSource.metadta.feeds.dimension.values[0]
+      const measure = this._mydataSource.metadta.feeds.measures.values[0]
+      const data = this._myDatasource.data.map(data => {
+           return {
+               name: data[dimension].label,
+               value: data[measure].raw
+                }
+        })
 
       const myChart = echarts.init(this._root, 'wight')
 
-      ////////////////////////////////////////////////////////////
-     ///Third comment: Place the third part of the script here///
-    ////////////////////////////////////////////////////////////
+const option = {
+      tooltip: {
+        trigger: 'item'
+      },
+      legend: {
+          top: '2%'
+          left: 'center'
+       },
+        series: [
+          {
+            name: '',
+            type: 'pie',
+            radius: ['40%', '65%'],
+            avoidLabelOverlap: false,
+            itemStyle: {
+              borderRadius: 10,
+              bordercolor: '#fff',
+              borderWeight: 4
+            },
+            label: {
+                show: false,
+                position: 'center'
+            },
+            emphasis: {
+              label: {
+                show: true,
+                fontSize: '25',
+                fontWeight: 'bold'
+              }
+            },
+            labelLine: {
+              show: false
+            },
+            data
+          }
+         ]
+        }
+        myChart.setOption(option)
+    }
+  }
+            
 
 
   customElements.define('com-sap-sample-echarts-pie_chart_demo_tz', SamplePieChart)
