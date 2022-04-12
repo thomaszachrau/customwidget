@@ -61,7 +61,7 @@ const option = {
         trigger: 'item'
       },
       legend: {
-          top: '2%'
+          top: '2%',
           left: 'center'
        },
         series: [
