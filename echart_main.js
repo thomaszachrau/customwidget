@@ -35,8 +35,7 @@ set myDatasource (dataBinding) {
                   this._myDataSource = dataBinding
                   this.render()
 }
-
-
+   
     async render () {
       await getScriptPromisify('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js')
 
