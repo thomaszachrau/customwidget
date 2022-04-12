@@ -32,7 +32,7 @@ var getScriptPromisify = (src) => {
 
 
 set myDatasource (dataBinding) {
-                  this._myDatesource = dataBinding
+                  this._myDataSource = dataBinding
                   this.render()
 }
 
@@ -45,9 +45,9 @@ if (!this._myDataSource || this._myDataSource.state !== 'success') {
       return
     }
     const dimension = 
-this._mydataSource.metadta.feeds.dimension.values[0]
-      const measure = this._mydataSource.metadta.feeds.measures.values[0]
-      const data = this._myDatasource.data.map(data => {
+this._myDataSource.metadata.feeds.dimension.values[0]
+      const measure = this._myDataSource.metadata.feeds.measures.values[0]
+      const data = this._myDataSource.data.map(data => {
            return {
                name: data[dimension].label,
                value: data[measure].raw
