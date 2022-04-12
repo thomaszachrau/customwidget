@@ -53,5 +53,5 @@ var getScriptPromisify = (src) => {
     ////////////////////////////////////////////////////////////
 
 
-  customElements.define('com-sap-sample-echarts-pie_chart_demo_xx', SamplePieChart)
+  customElements.define('com-sap-sample-echarts-pie_chart_demo_tz', SamplePieChart)
 })()
